@@ -16,6 +16,10 @@ export interface ProgramInfoParams {
   heartCheckDone: boolean;
 }
 
+export interface ProgramInfoState {
+  programinfo: ProgramInfoParams;
+}
+
 export const HEARTTOGGLE = "HEARTTOGGLE";
 
 interface HeartToggleAction {

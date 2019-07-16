@@ -3,10 +3,12 @@ import { ProgramInfoParams } from '../../store/modules/ProgramInfo';
 
 interface Props {
   params: ProgramInfoParams;
+  onHeartDone(): void;
 }
 
 const ProgramInfo: React.SFC<Props> = ({
   params,
+  onHeartDone
 }) => (
   <div>
     <div className="programinfo_detail">
@@ -25,7 +27,7 @@ const ProgramInfo: React.SFC<Props> = ({
     </div>
     <span>
       <div className="heartButton">
-        <button>하트</button>
+        <button onClick={() => onHeartDone()}>하트</button>
       </div>
       <a href={params.tel}>전화번호</a>
     </span>

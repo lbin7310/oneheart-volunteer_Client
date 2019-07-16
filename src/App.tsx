@@ -3,9 +3,9 @@ import { BrowserRouter, Route } from "react-router-dom";
 import {
   LoginView,
   MainView,
-  ProgramInfoView,
   UserInfoView
 } from "./pages/index";
+import ProgramInfoContainer from './container/ProgramInfoContainer';
 
 const App = () => {
   return (
@@ -13,7 +13,7 @@ const App = () => {
       <div>
         <Route exact path="/login" component={LoginView} />
         <Route path="/main" component={MainView} />
-        <Route path="/programinfo" component={ProgramInfoView} />
+        <Route path="/programinfo" component={ProgramInfoContainer} />
         <Route path="/userinfo" component={UserInfoView} />
       </div>
     </BrowserRouter>

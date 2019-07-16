@@ -34,12 +34,9 @@ export type programInfoActionTypes =
 
 // actions
 
-function heartToggle(id: number) {
+function heartToggle() {
   return {
-    type: HEARTTOGGLE,
-    meta: {
-      id
-    }
+    type: HEARTTOGGLE
   };
 }
 
@@ -48,30 +45,33 @@ export const actionCreators = {
 };
 // reducers
 
-const initialState: ProgramInfoParams = {
-  id: 0,
-  programName: '',
-  startDate: '',
-  volunteerTime: '',
-  recruitmentNumber: '',
-  remainingNumber: '',
-  callNumber: '',
-  volunteerExplanation: '',
-  googleMap: '',
-  tel: '',
-  heartCheckDone: false
+const initialState: ProgramInfoState = {
+  programinfo: {
+    id: 0,
+    programName: '',
+    startDate: '',
+    volunteerTime: '',
+    recruitmentNumber: '',
+    remainingNumber: '',
+    callNumber: '',
+    volunteerExplanation: '',
+    googleMap: '',
+    tel: '',
+    heartCheckDone: false
+  }
 };
 
 export function programInfoReducer(
   state=initialState, action: programInfoActionTypes
-): ProgramInfoParams {
+): ProgramInfoState {
   switch (action.type) {
     case HEARTTOGGLE:
       const copyState = {...state};
-      if (copyState.id === action.meta.id) {
-        copyState.heartCheckDone = !copyState.heartCheckDone;
-        return copyState;
-      }
+        console.log(state.programinfo.heartCheckDone, 'state before');
+        console.log(copyState.programinfo.heartCheckDone, "before");
+        copyState.programinfo.heartCheckDone = !copyState.programinfo.heartCheckDone;
+        console.log(copyState.programinfo.heartCheckDone, "after");
+      return copyState;
     default:
       return state;
   }

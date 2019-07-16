@@ -6,7 +6,7 @@ export default class LoginView extends Component {
   render() {
     return (
       <div>
-        <Login />
+        {/* <Login /> */}
       </div>
     );
   }
